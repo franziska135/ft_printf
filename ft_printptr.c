@@ -38,7 +38,7 @@ int	ft_printptr(void *ptr)
 	n = (unsigned long long int)ptr;
 	if (!ptr)
 	{
-		i += write(1, "NULL", 4);
+		i += write(1, "(nil)", 5);
 		return (i);
 	}
 	i += write(1, "0x", 2);

@@ -19,12 +19,10 @@ int	ft_putu(unsigned int nbr)
 
 	n = nbr;
 	i = 0;
-
 	if (n > 9)
 		i += ft_putu(n / 10);
 	ft_putchar(n % 10 + '0');
 	return (i + 1);
-
 }
 /*
 int	ft_putu(unsigned int n)
