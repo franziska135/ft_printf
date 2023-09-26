@@ -73,3 +73,29 @@ int	ft_printf(const char *str, ...)
 	va_end(list);
 	return (length);
 }
+
+/*
+int	main(void)
+{
+	char	*format;
+
+	format = "%u %s %x";
+	printf("\n%d\n", ft_printf(format, INT_MAX + 100, "abcdef", 12345));
+	printf("\n%d\n", printf(format, INT_MAX + 100, "abcdef", 12345));
+	printf("\n");
+	format = "'%c'";
+	printf("\n%d\n", ft_printf(format, ""));
+	printf("\n%d\n", printf(format, ""));
+	printf("\n");
+	format = "%p";
+	printf("\n%d\n", ft_printf(format, 0));
+	printf("\n%d\n", printf(format, 0));
+	printf("\n");
+	format = "hello %% test %i %d %% %%%d%";
+	printf("\n%d\n", ft_printf(format, -13, 0, INT_MIN));
+	printf("\n%d\n", printf(format, -13, 0, INT_MIN));
+	printf("\n");
+	printf("\n%d\n", ft_printf("%%%we:%"));
+	printf("\n%d\n", printf("%%%we:%"));
+}
+*/
