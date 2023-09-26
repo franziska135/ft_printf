@@ -54,6 +54,8 @@ int	ft_printf(const char *str, ...)
 	i = -1;
 	length = 0;
 	va_start(list, str);
+	if (str == 0)
+		return (-1);
 	while (str[++i] != '\0')
 	{
 		if (str[i] == '%')
@@ -65,37 +67,54 @@ int	ft_printf(const char *str, ...)
 				i++;
 		}
 		else if (str[i])
-		{
-			ft_putchar(str[i]);
-			length++;
-		}
+			(ft_putchar(str[i]), length++);
 	}
 	va_end(list);
 	return (length);
 }
 
-/*
 int	main(void)
 {
 	char	*format;
 
-	format = "%u %s %x";
-	printf("\n%d\n", ft_printf(format, INT_MAX + 100, "abcdef", 12345));
-	printf("\n%d\n", printf(format, INT_MAX + 100, "abcdef", 12345));
-	printf("\n");
-	format = "'%c'";
-	printf("\n%d\n", ft_printf(format, ""));
-	printf("\n%d\n", printf(format, ""));
-	printf("\n");
-	format = "%p";
-	printf("\n%d\n", ft_printf(format, 0));
-	printf("\n%d\n", printf(format, 0));
-	printf("\n");
-	format = "hello %% test %i %d %% %%%d%";
-	printf("\n%d\n", ft_printf(format, -13, 0, INT_MIN));
-	printf("\n%d\n", printf(format, -13, 0, INT_MIN));
-	printf("\n");
-	printf("\n%d\n", ft_printf("%%%we:%"));
-	printf("\n%d\n", printf("%%%we:%"));
+	// format = "%u %s %x";
+	// printf("\n%d\n", ft_printf(format, INT_MAX + 100, "abcdef", 12345));
+	// printf("\n%d\n", printf(format, INT_MAX + 100, "abcdef", 12345));
+	// printf("\n");
+	// format = "'%c'";
+	// printf("\n%d\n", ft_printf(format, ""));
+	// printf("\n%d\n", printf(format, ""));
+	// printf("\n");
+	// format = "%p";
+	// printf("\n%d\n", ft_printf(format, 0));
+	// printf("\n%d\n", printf(format, 0));
+	// printf("\n");
+	// format = "hello %% test %i %d %% %%%d%";
+	// printf("\n%d\n", ft_printf(format, -13, 0, INT_MIN));
+	// printf("\n%d\n", printf(format, -13, 0, INT_MIN));
+	// printf("\n");
+	printf("\n%d\n", ft_printf("%w"));
+	printf("\n%d\n", printf("%w"));
 }
-*/
+/* //2. Main von davor
+int	main(void)
+{
+	char			*b;
+	char			c;
+	int				nbr;
+	unsigned int	uns;
+	int				a;
+	int				A;
+
+	b = "you";
+	c = 82;
+	nbr = -1235;
+	uns = 1234;
+	a = ft_printf("hello s:%s, c:%c, d:%d, u:%u, prozent:%%, p:%p", b, c, nbr, uns, b);
+	a = ft_printf(" NULL %s NULL ", NULL);
+	printf("\n");
+	A = printf("hello s:%s, c:%c, d:%d, u:%u, prozent:%%, p:%p", b, c, nbr, uns, b);
+	A = printf(" NULL %s NULL ", NULL);
+	printf("\n1:%d\n2:%d", a, A);
+	return (0);
+}*/
