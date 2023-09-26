@@ -58,15 +58,14 @@ int	ft_printf(const char *str, ...)
 		return (-1);
 	while (str[++i] != '\0')
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1] == '\0')
+			return (-1);
+		if (str[i] == '%' && ft_found(str[i + 1]))
 		{
-			if (str[i + 1] == '\0')
-				return (-1);
 			length += ft_format(list, str[i + 1]);
-			if (ft_found(str[i + 1]))
-				i++;
+			i++;
 		}
-		else if (str[i])
+		else if (str[i] || (str[0] == '%' && i == 0))
 			(ft_putchar(str[i]), length++);
 	}
 	va_end(list);
@@ -93,28 +92,6 @@ int	main(void)
 	// printf("\n%d\n", ft_printf(format, -13, 0, INT_MIN));
 	// printf("\n%d\n", printf(format, -13, 0, INT_MIN));
 	// printf("\n");
-	printf("\n%d\n", ft_printf("%w"));
-	printf("\n%d\n", printf("%w"));
+	// printf("\n%d\n", ft_printf("%ww"));
+	// printf("\n%d\n", printf("%ww"));
 }
-/* //2. Main von davor
-int	main(void)
-{
-	char			*b;
-	char			c;
-	int				nbr;
-	unsigned int	uns;
-	int				a;
-	int				A;
-
-	b = "you";
-	c = 82;
-	nbr = -1235;
-	uns = 1234;
-	a = ft_printf("hello s:%s, c:%c, d:%d, u:%u, prozent:%%, p:%p", b, c, nbr, uns, b);
-	a = ft_printf(" NULL %s NULL ", NULL);
-	printf("\n");
-	A = printf("hello s:%s, c:%c, d:%d, u:%u, prozent:%%, p:%p", b, c, nbr, uns, b);
-	A = printf(" NULL %s NULL ", NULL);
-	printf("\n1:%d\n2:%d", a, A);
-	return (0);
-}*/
