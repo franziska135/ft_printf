@@ -28,21 +28,3 @@ int	ft_printlhex(unsigned int n)
 		i += ft_putchar(hex_l[n % 16]);
 	return (i);
 }
-/*int	ft_printlhex(unsigned int n)
-{
-	int		i;
-	char	*hex_l;
-
-	i = 0;
-	hex_l = "0123456789abcdef";
-	if (n > 15)
-	{
-		i += ft_printlhex(n / 16);
-		i += ft_printlhex(n % 16);
-	}
-	else
-	{
-		i += ft_putchar(hex_l[n % 16]);
-	}
-	return (i);
-}*/
