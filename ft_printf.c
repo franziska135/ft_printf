@@ -71,3 +71,45 @@ int	ft_printf(const char *str, ...)
 	va_end(list);
 	return (length);
 }
+
+
+int	main(void)
+{
+	char			*format;
+	char			*s;
+	char			c;
+	int				i;
+	int				d;
+	unsigned int	u;
+	int				x;
+	int				X;
+	char			*p;
+
+	s = "";
+	c = 0;
+	i = INT_MIN; //intmin and int_max
+	d = 0;
+	u = INT_MAX;
+	x = 1234567;
+	X = 1234567;
+	p = 0;
+	format = "s:%s, c:%c, p:%p, d:%d, i:%i, u:%u, x:%x, X:%X\n";
+
+	printf("ft_print: \t%d\n", ft_printf(format, s, c, p, d, i, u, x, X));
+	printf("printf: \t%d\n", printf(format, s, c, p, d, i, u, x, X));
+	printf("\n");
+	s = "How";
+	c = 85;
+	d = 2;
+	format = "Hello World %s are %c %dday?\n";
+	printf("ft_print: \t%d\n", ft_printf(format, s, c, d));
+	printf("printf: \t%d\n", printf(format, s, c, d));
+	printf("\n");
+	s = "sunnyday ";
+	format = "%s%s%s\n";
+	printf("ft_print: \t%d\n", ft_printf(format, s, s, s));
+	printf("printf: \t%d\n", printf(format, s, s, s));
+	printf("\n");
+	printf("ft_print: \t%d\n", ft_printf(0));
+	printf("printf: \t%d\n", printf(0));
+}
